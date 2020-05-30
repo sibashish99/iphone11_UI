@@ -43,10 +43,7 @@ header{
     padding: 0 1rem;
     transition: opacity .5s;
 }
-.nav-link:hover{
-    opacity: 0.7;
-    transform: skewX(15deg);
-}
+
 .nav-link-apple{
     width: 1.6rem;
     height: 4.4rem;
@@ -81,13 +78,9 @@ header{
     color: #fff;
     text-align: center;
     padding-top: 5.5rem;
-   opacity: 0.2;
-    transition: 2s;
+
 }
-.title:hover{
-    opacity: 1;
-    transition: 2s;
-}
+
 
 .title-heading{
     font-size: 5.6rem;
@@ -126,19 +119,13 @@ header{
 .iphone-11{
     background: url("images/hero/iphone-11/iphone_11_large.jpg");
     margin-top: 4.4rem;
-    opacity: 0;
+
 }
-.iphone-11:hover{
-    opacity: 1;
-    transition: 1s;
-}
+
 .title-dark{
     color: black;
 }
-.title-dark:hover{
-    transform: scale(0.8);
-    color: rgb(82, 73, 73);
-}
+
 .cta-link-darker{
     color: #0070c9;
 }
@@ -203,8 +190,8 @@ header{
 @media screen and (max-width:767px){
     header{
         height: 4.8rem;
-        transition: background .36s cubic-bezier(0.32, 0.08, 0.24, 1),
-                     height .56s cubic-bezier(0.32, 0.08, 0.24, 1);
+        transition: background 0.36s cubic-bezier(0.32, 0.08, 0.24, 1),
+                     height 0.56s cubic-bezier(0.32, 0.08, 0.24, 1);
     }
     header .container{
         padding: 0;
@@ -212,9 +199,7 @@ header{
     .iphone-11-pro{
         margin-top: 4.8rem;
     }
-    .nav-list-larger{
-        display: none;
-    }
+  
     .nav-list{
         margin-top: 0;
     }
@@ -246,14 +231,130 @@ header{
         width: 1.7rem;
         height: 1px;
         background-color: #fff;
-        transform: margin-top .3192s cubic-bezier(0.04, 0.04,0.12,0.96);
+        transition: margin-top  0.3192s cubic-bezier(0.04, 0.04,0.12,0.96);
     }
     .line-top{
         margin-top: 3px;
 
     }
     .line-bottom{
-        margin-top: -.4rem;
+        margin-top: -0.4rem;
+    }
+    .active .line-top{
+        margin-top: 0;
+        transform: rotate(45deg);
+        transition: transform 0.3192s .1s cubic-bezier(0.04, 0.04,0.12,0.96);
+    }
+    .active .line-bottom{
+        margin-top: 0;
+        transform: rotate(-45deg);
+        transition: transform 0.3192s .1s cubic-bezier(0.04, 0.04,0.12,0.96);
+    }
+    header.active{
+         height: 100%;
+         background-color: #000;
+    }
+    .nav-link-apple{
+        width: 1.8rem;
+        height: 4.8rem;
+        position: relative;
+        z-index: 1500;
+
+    }
+    .nav-link-bag{
+        width: 1.6rem;
+        height: 4.8rem;
+        transition: opacity 3s;
+    }
+    .nav{
+        position: relative;
+    }
+    .nav-link{
+        font: 1.7rem;
+        padding: 0;
+        margin: auto 0;
+    } 
+    .nav-list-larger{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        display: block;
+        padding: 10.5rem 5rem;
+        z-index: 1000;
+        box-sizing: border-box;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 3.3s;
+    }
+    .active .nav-list-larger{
+        width: 100%;
+        height: 100vh;
+        opacity: 1;
+        visibility: visible;
+    }
+    .active .nav-link-bag{
+        opacity: 0;
+        transition: opacity 3.3s ;
+    }
+    .nav-list-larger .nav-item{
+        width: 100%;
+        justify-content: flex-start;
+        border-bottom: 2px solid rgba(255.255,255,1);
+    }
+    .nav-list-larger .nav-item:nth-child(9){
+        border-bottom: none;
+    }
+    .active .nav-list-larger .nav-item{
+        animation: fadeIn 1s ease-in;
+    }
+    @keyframes fadeIn {
+        from{
+            opacity: 0;
+        }
+        to{
+            opacity: 1 ;
+        }
+    }
+}
+@media screen and (max-width:735px){
+    .iphone-11-pro{
+        background: url("images/hero/iphone-11-pro/iphone_11_pro_small.jpg");
+    }
+    .iphone-11{
+        background: url("images/hero/iphone-11/iphone_11_small.jpg");
+    }
+    .watch{
+        background: url("images/hero/watch/watch_small.jpg");
+    }
+    .hero{
+        height: 50rem;
+        background-size: auto 54.8rem;
+        background-position: bottom center;
+        background-repeat: no-repeat;
+    }
+    .title{
+        padding-top: 3.7rem;
+    }
+    .title-heading{
+        font-size: 3.4rem;
+    }
+    .title-sub-heading{
+        font-size: 1.9rem;
+    }
+    .title-heading-watch{
+       margin-top: -0.5rem;
+       margin-bottom: 0;
+    }
+    .title-price{
+       font-size: 1.4rem;
+    }
+    .cta{
+        margin-top: .7rem;
+    }
+    .cta-link{
+        font-size: 1.9rem;
     }
 }
 
